@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mssql-adventure:
+    image: mssql-adventure
+    build: .
+    ports:
+      - '1433:1433'
+    volumes:
+      - mssql-data:/var/opt/mssql/data
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'teste@123'
+      MSSQL_MEMORY_LIMIT_MB: 1024
+      MSSQL_PID: 'Developer'
+    command: sh -c "/work/restoredb.sh"
+
+volumes:
+  mssql-data:
