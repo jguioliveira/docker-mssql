@@ -19,7 +19,7 @@ RUN ["chmod", "+x", "./restoredb.sh"]
 # Switch back to mssql user and run the entrypoint script
 USER mssql
 
-ENTRYPOINT [ "/opt/mssql/bin/sqlservr" ]
+ENTRYPOINT [ ]
 #CMD /bin/bash ./entrypoint.sh
 
 #RUN ./RestoreDb.sql

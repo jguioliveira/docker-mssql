@@ -13,7 +13,7 @@ services:
       MSSQL_SA_PASSWORD: 'teste@123'
       MSSQL_MEMORY_LIMIT_MB: 1024
       MSSQL_PID: 'Developer'
-    command: sh -c "/work/restoredb.sh"
+    command: sh -c "/work/entrypoint.sh"
 
 volumes:
   mssql-data:
