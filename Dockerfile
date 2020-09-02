@@ -1,16 +1,24 @@
 #FROM microsoft/mssql-server-windows-developer:latest
 FROM mcr.microsoft.com/mssql/server:latest
 
-RUN mkdir /work
-
-COPY /backups/AdventureWorksLT2017.bak /work
-
-COPY /src/RestoreDb.sql /work
-
-COPY /src/Restore.sh /work
+# Switch to root user for access to apt-get install
+USER root
 
 WORKDIR /work
 
-RUN chmod 755 Restore.sh
+ADD ./backup/AdventureWorksLT2017.bak .
 
-RUN ./Restore.sh RestoreDb.sql
+ADD ./RestoreDb.sql .
+ADD ./restoredb.sh .
+ADD ./entrypoint.sh .
+
+#RUN chmod +x ./Restore.sh
+RUN ["chmod", "+x", "./restoredb.sh"]
+#RUN ./Restore.sh RestoreDb.sql
+
+# Switch back to mssql user and run the entrypoint script
+USER mssql
+
+CMD /bin/bash ./entrypoint.sh
+
+#RUN ./RestoreDb.sql
