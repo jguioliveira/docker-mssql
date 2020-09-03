@@ -7,13 +7,13 @@ services:
     ports:
       - '1433:1433'
     volumes:
-      - mssql-data:/var/opt/mssql/data
+      - mssql-data:/var/opt/mssql
     environment:
       ACCEPT_EULA: 'Y'
       MSSQL_SA_PASSWORD: 'teste@123'
       MSSQL_MEMORY_LIMIT_MB: 1024
       MSSQL_PID: 'Developer'
-    command: sh -c "./restoredb.sh"
+      #    command: ["/bin/bash", "./work/restoredb.sh"]
 
 volumes:
   mssql-data:

@@ -10,7 +10,7 @@ ADD ./backup/AdventureWorksLT2017.bak .
 
 ADD ./RestoreDb.sql .
 ADD ./restoredb.sh .
-# ADD ./entrypoint.sh .
+ADD ./entrypoint.sh .
 
 #RUN chmod +x ./Restore.sh
 RUN ["chmod", "+x", "./restoredb.sh"]
@@ -19,7 +19,7 @@ RUN ["chmod", "+x", "./restoredb.sh"]
 # Switch back to mssql user and run the entrypoint script
 USER mssql
 
-ENTRYPOINT [ "/opt/mssql/bin/sqlservr" ]
+ENTRYPOINT [ "/bin/bash", "./entrypoint.sh" ]
 #CMD /bin/bash ./entrypoint.sh
 
 #RUN ./RestoreDb.sql
