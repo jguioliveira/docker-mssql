@@ -14,8 +14,3 @@ do
 	        sleep 1
 	fi
 done
-
-
-#echo "Restoring DB."
-#/opt/mssql-tools/bin/sqlcmd -U sa -P $SA_PASSWORD  -d master -i RestoreDb.sql
-#echo "DB restored."
