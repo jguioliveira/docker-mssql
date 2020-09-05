@@ -9,10 +9,7 @@ services:
     volumes:
       - mssql-data:/var/opt/mssql
     environment:
-      ACCEPT_EULA: 'Y'
       MSSQL_SA_PASSWORD: 'teste@123'
-      MSSQL_MEMORY_LIMIT_MB: 1024
-      MSSQL_PID: 'Developer'
 
 volumes:
   mssql-data:
