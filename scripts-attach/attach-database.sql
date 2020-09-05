@@ -4,8 +4,8 @@ GO
 USE [master]
 GO
 CREATE DATABASE [AdventureWorksLT2017] ON 
-( FILENAME = N'/var/opt/mssql/data/AdventureWorksLT2012.mdf' ),
-( FILENAME = N'/var/opt/mssql/data/AdventureWorksLT2012_log.ldf' )
+( FILENAME = N'/var/opt/mssql/adventure/AdventureWorksLT2012.mdf' ),
+( FILENAME = N'/var/opt/mssql/adventure/AdventureWorksLT2012_log.ldf' )
  FOR ATTACH
 GO
 

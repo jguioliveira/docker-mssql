@@ -16,7 +16,7 @@ ENV ACCEPT_EULA Y
 # RUN ["chmod", "+x", "/opt/var/scripts/restore-backup.sh"]
 
 # Comandos para Attach do Banco de Dados
-WORKDIR /var/opt/mssql/data
+WORKDIR /var/opt/mssql/adventure
 COPY ./data/ .
 WORKDIR /opt/var/scripts
 COPY ./scripts-attach/ .
